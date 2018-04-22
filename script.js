@@ -14,8 +14,10 @@ setInterval(function(){
 
     var start = (i === 1) ? moment($('tr:nth-child(1) td:nth-child(3) input').val(), 'HH:mm')
     : moment($('tr:nth-child(' + i + ') td:nth-child(3)').text(), 'HH:mm');
-
     var end = moment($('tr:nth-child(' + i + ') td:nth-child(4)').text(), 'HH:mm');
+
+    end = (end.diff(start) >= 0) ? end : end.add(1, 'd');
+
     if (start.isBefore(now) && end.isAfter(now)) {
       $('#current-task').text(
         $('tr:nth-child(' + i + ') td:first-child input').val()
