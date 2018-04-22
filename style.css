@@ -1,0 +1,35 @@
+/* Info Board */
+#info .content {
+  padding: 0
+}
+
+#info .content div:nth-of-type(1) {
+  padding: 0.4rem;
+  border-bottom: 1px solid #dbdbdb;
+  font-weight: bold;
+}
+#info .content div:nth-of-type(2) {
+  padding: 0.8rem;
+  border-bottom: 1px solid #dbdbdb;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+#info p {
+  margin: 0;
+  text-align: center
+}
+
+
+/* Table */
+
+table {
+  width: 100%
+}
+
+table th:nth-of-type(1) { width: 40% }
+table th:nth-of-type(2) { width: 12% }
+table th:nth-of-type(3) { width: 12% }
+table th:nth-of-type(4) { width: 12% }
+table th:nth-of-type(5) { width: 12% }
+table th:nth-of-type(6) { width: 12% }

@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.2.2/moment-duration-format.min.js"></script>
 
 <link rel="stylesheet" href="/style.css?201804062021">
 <link rel="stylesheet" href="style.css?201804062021">
@@ -32,7 +34,45 @@
 <section class="section">
   <div class="container">
 
-    <table></table>
+    <div class="columns" id="info">
+      <div class="column is-2"></div>
+      <div class="column is-4">
+        <article class="messages">
+          <div class="message-body content">
+            <div> <p>実行中のタスク </div>
+            <div> <p id="current-task">実行中のタスクはありません </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-2">
+        <article class="messages">
+          <div class="message-body content">
+            <div> <p>実行中のタスクの残り時間 </div>
+            <div> <p id="time-left">3:00:00</div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-2">
+        <article class="messages">
+          <div class="message-body content">
+            <div> <p>本日のタスク終了予定時刻 </div>
+            <div> <p id="eta"> </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-2"></div>
+
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr><th>タスク<th>見積<th>開始予定<th>終了予定<th>実績<th>終了</tr>
+      </thead>
+      <tbody>
+        <tr><td><input class="input"><td><input class="input"><td><td><td><td><input class="input">
+        <tr><td><input class="input"><td><input class="input"><td><td><td><td><input class="input">
+      </tbody>
+    </table>
 
     <!-- <article class="message is-dark" style="margin-top: 3rem">
       <div class="message-body content">
