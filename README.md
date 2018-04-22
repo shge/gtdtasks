@@ -1,2 +1,1 @@
-# gtdtasks
-Task Management
+# [shge.github.io/gtdtasks/](https://shge.github.io/gtdtasks/)
