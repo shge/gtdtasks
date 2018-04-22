@@ -3,12 +3,12 @@
   padding: 0
 }
 
-#info .content div:nth-of-type(1) {
+#info .content div:nth-of-type(1) { /* Title */
   padding: 0.4rem;
   border-bottom: 1px solid #dbdbdb;
   font-weight: bold;
 }
-#info .content div:nth-of-type(2) {
+#info .content div:nth-of-type(2) { /* Value */
   padding: 0.8rem;
   border-bottom: 1px solid #dbdbdb;
   font-weight: bold;
@@ -24,7 +24,17 @@
 /* Table */
 
 table {
-  width: 100%
+  width: 100%;
+}
+.table td {
+  vertical-align: middle
+}
+.table th {
+  text-align: center;
+}
+.table td:not(:nth-of-type(1)),
+.table td:not(:nth-of-type(1)) input {
+  text-align: center;
 }
 
 table th:nth-of-type(1) { width: 40% }
