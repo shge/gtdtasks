@@ -4,6 +4,8 @@ var now = moment().format('kk:mm');
 $('#eta').text(now);
 $('#start-time').val(now);
 
+$('tbody').sortable();
+$('tbody').disableSelection();
 
 // Info Board
 setInterval(function(){
