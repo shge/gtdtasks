@@ -106,6 +106,7 @@ setInterval(function(){
 
 },1000);
 
+
 // Click Set current time
 $('#set-current').on('click', function() {
   $('#start-time').val( moment().format('kk:mm') );
@@ -127,10 +128,25 @@ $(document).on('keypress', 'table td input', function(e) {
 	}
 });
 
+// Fix formats
+$(document).on('change', '.reqtime', function() {
+  var i = $(this).val();
+  var t;
+  if (0 < i && i < 60) {
+    t = toMomentDuration('0:' + i).format('H:mm', { trim : false });
+  } else if (i.match(/^\d+h\d*$/)) {
+    t = toMomentDuration( i.replace('h', ':00') ).format('H:mm', { trim : false });
+  } else {
+    t = i;
+  }
+  $(this).val(t);
+});
 
 // Calculate
 $(document).on('change', 'td input, #start-time', function() { calc(); });
 $('tbody').on('sortupdate', function() { calc(); });
+
+
 
 
 }); // $
