@@ -20,6 +20,15 @@
   text-align: center
 }
 
+#time-board {
+  font-weight: bold;
+  text-align: center;
+  line-height: 2.5rem;
+}
+#start-time {
+  text-align: center;
+  width: 5rem;
+}
 
 /* Table */
 

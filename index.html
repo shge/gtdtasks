@@ -36,7 +36,7 @@
   <div class="container">
 
     <div class="columns" id="info">
-      <div class="column is-2"></div>
+      <div class="column is-1"></div>
       <div class="column is-4">
         <article class="messages">
           <div class="message-body content">
@@ -57,11 +57,16 @@
         <article class="messages">
           <div class="message-body content">
             <div> <p>本日のタスク終了予定時刻 </div>
-            <div> <p id="eta"> </div>
+            <div> <p id="eta-today"> </div>
           </div>
         </article>
       </div>
-      <div class="column is-2"></div>
+      <div class="column is-2" id="time-board">
+        <p>現在時刻：<span id="current-time">-</span>
+        <p>開始時刻：<input class="input" id="start-time">
+        <button class="button" id="set-current">現在時刻に設定</button>
+      </div>
+      <div class="column is-1"></div>
 
     </div>
 
@@ -70,7 +75,13 @@
         <tr><th>タスク<th>見積<th>開始予定<th>終了予定<th>実績<th>終了</tr>
       </thead>
       <tbody>
-        <tr><td><input class="input"><td><input class="input"><td><input class="input" id="start-time"><td><td><td><input class="input">
+        <tr>
+          <td><input class="input task">
+          <td><input class="input reqtime">
+          <td class="start">
+          <td class="end">
+          <td class="took">
+          <td><input class="input ended">
       </tbody>
     </table>
 
