@@ -6,7 +6,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117094943-1"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-117094943-1");</script>
 <title>GTDTasks</title>
-<meta name="description" content="ブラウザ上で簡単にタスク管理を行うことができます。。">
+<meta name="description" content="ブラウザ上で簡単にタスク管理を行うことができます。GTDの考え方を利用して上から順にタスクを実行していくだけで仕事を終わらせることができます。">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -72,10 +72,11 @@
 
     <table class="table">
       <thead>
-        <tr><th>タスク<th>見積<th>開始予定<th>終了予定<th>実績<th>終了</tr>
+        <tr><th><th>タスク<th>見積<th>開始予定<th>終了予定<th>実績<th>終了</tr>
       </thead>
       <tbody>
         <tr>
+          <td><i class="fas fa-trash fa-fw remove"></i>
           <td><input class="input task">
           <td><input class="input reqtime">
           <td class="start">

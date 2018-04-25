@@ -1,7 +1,8 @@
 $(function() {
 
 var now = moment().format('kk:mm');
-$('#eta-today, #current-time, tr:first-child .start').text(now);
+// $('#eta-today, #current-time, tr:first-child .start').text(now);
+$('#eta-today, #current-time').text(now);
 $('#start-time').val(now);
 
 // Sort
@@ -120,9 +121,9 @@ $(document).on('keypress', 'table td input', function(e) {
 
     // var i = $(this).parents('td').index() + 1;
     if ( $(this).parents('tr').is(':last-child') ) {
-      $('table tbody').append('<tr><td><input class="input task"><td><input class="input reqtime"><td class="start"><td class="end"><td class="took"><td><input class="input ended">');
+      $('table tbody').append('<tr><td><i class="fas fa-trash fa-fw remove"></i><td><input class="input task"><td><input class="input reqtime"><td class="start"><td class="end"><td class="took"><td><input class="input ended">');
     }
-    $(this).parents('tr').next().find('td:first-child input').focus();
+    $(this).parents('tr').next().find('.task').focus();
 
 		return false;
 	}
@@ -146,6 +147,17 @@ $(document).on('change', '.reqtime', function() {
 $(document).on('change', 'td input, #start-time', function() { calc(); });
 $('tbody').on('sortupdate', function() { calc(); });
 
+// Remove tasks
+$(document).on('click', '.remove', function() {
+  var tr = $(this).parents('tr');
+  if ($('tr').length !== 2) {
+    tr.remove();
+    calc();
+  } else {
+    tr.find('.task, .reqtime, .ended').val('');
+    tr.find('.start, .end, .took').text('');
+  }
+});
 
 
 
