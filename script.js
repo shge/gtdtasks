@@ -16,6 +16,17 @@ $('tbody').sortable({
   helper: fixHelper
 }).disableSelection();
 
+// Warn before unloading
+var onBeforeunloadHandler = function() { return 'Are you sure?'; };
+$('#onunload').on('change', function() {
+  if (this.checked) {
+    $(window).on('beforeunload', onBeforeunloadHandler);
+  } else {
+    $(window).off('beforeunload', onBeforeunloadHandler);
+  }
+});
+
+
 function toMomentTime(i) {
   t = moment(i, 'HH:mm');
   return t;
@@ -158,6 +169,7 @@ $(document).on('click', '.remove', function() {
     tr.find('.start, .end, .took').text('');
   }
 });
+
 
 
 
