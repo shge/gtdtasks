@@ -1,6 +1,6 @@
 $(function() {
 
-var now = moment().format('kk:mm');
+var now = moment().format('HH:mm');
 // $('#eta-today, #current-time, tr:first-child .start').text(now);
 $('#eta-today, #current-time').text(now);
 $('#start-time').val(now);
@@ -94,7 +94,7 @@ function calcTook(i) {  // 実績
 setInterval(function(){
 
   var now = moment();
-  $('#current-time').text(now.format('kk:mm'));
+  $('#current-time').text(now.format('HH:mm'));
   for (var i = 1; i < $('tr').length; i++) {
     var start = (i === 1) ? moment($('#start-time').val(), 'HH:mm')
                           : moment($('tr:nth-child(' + i + ') .start').text(), 'HH:mm');
@@ -121,7 +121,7 @@ setInterval(function(){
 
 // Click Set current time
 $('#set-current').on('click', function() {
-  $('#start-time').val( moment().format('kk:mm') );
+  $('#start-time').val( moment().format('HH:mm') );
   calc();
 });
 
