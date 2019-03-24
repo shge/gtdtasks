@@ -1,6 +1,12 @@
 $(function() {
 
 setInterval(function(){console.log(moment().format('HH:mm:ss'));},30000); // dev
+setInterval(function(){
+  setTimeout(function() {
+    document.getElementById('video').play();
+    console.log('Video played');
+  }, 100);
+}, 30000);
 
 var now = moment().format('HH:mm');
 // $('#eta-today, #current-time, tr:first-child .start').text(now);
@@ -188,7 +194,7 @@ $(document).on('click', '.remove', function() {
     calc();
   } else {
     tr.find('.task, .reqtime, .ended').val('');
-    tr.find('.start, .end, .took').text('');
+    tr.find('.end, .took').text('');
   }
 });
 
