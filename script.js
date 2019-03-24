@@ -57,7 +57,7 @@ function calc() {
     } else {
       console.error('startTime error');
     }
-    if (reqtime !== "") {
+    if (reqtime !== "" && startTime !== "") {
 
       $('tr:nth-child(' + i + ') .start').text(startTime);
       newETA = toMomentTime(startTime).add( toMomentDuration(reqtime) ).format('HH:mm');
@@ -82,8 +82,15 @@ function calc() {
 function calcTook(i) {  // 実績
 
   var start = toMomentTime( $('tr:nth-child(' + i + ') .start').text() );
-  var end = ( $('tr:nth-child(' + i + ') .ended').val() === "" ) ? toMomentTime( $('tr:nth-child(' + i + ') .end').text() )
-                                                                 : toMomentTime( $('tr:nth-child(' + i + ') .ended').val() );
+  var end;
+  if ($('tr:nth-child(' + i + ') .ended').val() === "") {
+    end = toMomentTime( $('tr:nth-child(' + i + ') .end').text());
+  } else {
+    end = toMomentTime( $('tr:nth-child(' + i + ') .ended').val() );
+    $('tr:nth-child(' + i + ') .ended').val(
+      end.format('HH:mm')
+    );
+  }
   if (end !== "") {
     var diff = (end.diff(start) >= 0) ? toMomentDuration(end.diff(start)) : toMomentDuration(end.diff(start)).add(1, 'd');
     $('tr:nth-child(' + i + ') .took').text(
