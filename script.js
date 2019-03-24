@@ -91,10 +91,19 @@ function calcTook(i) {  // 実績
 
 
 // Info Board
+var last_played;
+var beep = new Audio('beep_short.mp3');
 setInterval(function(){
 
   var now = moment();
   $('#current-time').text(now.format('HH:mm'));
+
+  // Sound
+  if ($('#sound').prop('checked') && now.format('HH:mm') === $('tr:first-child .end').text() && last_played !== now.format('HH:mm')) {
+    beep.play();
+    last_played = now.format('HH:mm');
+  }
+
   for (var i = 1; i < $('tr').length; i++) {
     var start = (i === 1) ? moment($('#start-time').val(), 'HH:mm')
                           : moment($('tr:nth-child(' + i + ') .start').text(), 'HH:mm');
