@@ -1,5 +1,7 @@
 $(function() {
 
+setInterval(function(){console.log(moment().format('HH:mm:ss'));},30000); // dev
+
 var now = moment().format('HH:mm');
 // $('#eta-today, #current-time, tr:first-child .start').text(now);
 $('#eta-today, #current-time').text(now);
@@ -14,7 +16,7 @@ function fixHelper(e, ui){
 }
 $('tbody').sortable({
   helper: fixHelper
-}).disableSelection();
+});
 
 // Warn before unloading
 var onBeforeunloadHandler = function() { return 'Are you sure?'; };
@@ -38,6 +40,8 @@ function toMomentDuration(i) {
 
 function calc() {
 
+  var newETA;
+
   for (var i = 1; i < $('tr').length; i++) {
 
     var reqtime = $('tr:nth-child(' + i + ') .reqtime').val();
@@ -49,7 +53,7 @@ function calc() {
     } else if (prevEnded === "") {
       startTime = prevEnd;
     } else if (prevEnded !== "") {
-      startTime = prevEnded;
+      startTime = toMomentTime(prevEnded).format('HH:mm');
     } else {
       console.error('startTime error');
     }
@@ -63,7 +67,7 @@ function calc() {
       calcTook(i);
 
     } else { // reqtime null
-      $('tr:nth-child(' + i + ') .start').text('');
+      $('tr:nth-child(' + i + ') .start').text(startTime);
       $('tr:nth-child(' + i + ') .end').text('');
       $('tr:nth-child(' + i + ') .took').text('');
     } // if
@@ -101,6 +105,7 @@ setInterval(function(){
   // Sound
   if ($('#sound').prop('checked') && now.format('HH:mm') === $('tr:first-child .end').text() && last_played !== now.format('HH:mm')) {
     beep.play();
+    console.log('Played: ' + now.format('HH:mm:ss')); // dev
     last_played = now.format('HH:mm');
   }
 
@@ -144,6 +149,7 @@ $(document).on('keypress', 'table td input', function(e) {
       $('table tbody').append('<tr><td><i class="fas fa-trash fa-fw remove"></i><td><input class="input task"><td><input class="input reqtime"><td class="start"><td class="end"><td class="took"><td><input class="input ended">');
     }
     $(this).parents('tr').next().find('.task').focus();
+    calc();
 
 		return false;
 	}
@@ -179,7 +185,7 @@ $(document).on('click', '.remove', function() {
   }
 });
 
-
+calc();
 
 
 }); // $
