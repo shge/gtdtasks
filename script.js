@@ -173,7 +173,9 @@ $(document).on('keypress', 'table td input', function(e) {
 
 // Fix formats
 $(document).on('change', '.reqtime', function() {
-  var i = $(this).val();
+  var i = $(this).val().replace(/q/g, '1').replace(/w/g, '2').replace(/e/g, '3').replace(/r/g, '4')
+       .replace(/t/g, '5').replace(/y/g, '6').replace(/u/g, '7').replace(/i/g, '8')
+       .replace(/o/g, '9').replace(/p/g, '0');
   var t;
   if (0 < i && i < 60) {
     t = toMomentDuration('0:' + i).format('H:mm', { trim : false });
