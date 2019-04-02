@@ -11,6 +11,10 @@ $('#sound').on('click', function() {
 
 setInterval(function(){console.log(moment().format('HH:mm:ss'));}, 30000); // dev
 setInterval(function(){
+  // if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf( 'iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+
+  // beep.play();
+  // beep.pause();
   document.getElementById('video').play();
   console.log('Video played');
 }, 20000);
