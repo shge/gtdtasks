@@ -1,12 +1,19 @@
 $(function() {
 
-setInterval(function(){console.log(moment().format('HH:mm:ss'));},30000); // dev
+var beep = new Audio('beep_short.mp3');
+
+$('#sound').on('click', function() {
+  beep.play();
+  console.log('Initial audio played');
+  beep.pause();
+  document.getElementById('video').play();
+});
+
+setInterval(function(){console.log(moment().format('HH:mm:ss'));}, 30000); // dev
 setInterval(function(){
-  setTimeout(function() {
-    document.getElementById('video').play();
-    console.log('Video played');
-  }, 100);
-}, 30000);
+  document.getElementById('video').play();
+  console.log('Video played');
+}, 20000);
 
 var now = moment().format('HH:mm');
 // $('#eta-today, #current-time, tr:first-child .start').text(now);
@@ -109,7 +116,6 @@ function calcTook(i) {  // 実績
 
 // Info Board
 var last_played;
-var beep = new Audio('beep_short.mp3');
 setInterval(function(){
 
   var now = moment();

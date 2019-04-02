@@ -1,6 +1,6 @@
 /* Info Board */
 #info .content {
-  padding: 0
+  padding: 0;
 }
 
 #info .content div:nth-of-type(1) { /* Title */
@@ -8,6 +8,7 @@
   border-bottom: 1px solid #dbdbdb;
   font-weight: bold;
 }
+
 #info .content div:nth-of-type(2) { /* Value */
   padding: 0.8rem;
   border-bottom: 1px solid #dbdbdb;
@@ -17,7 +18,7 @@
 
 #info p {
   margin: 0;
-  text-align: center
+  text-align: center;
 }
 
 #time-board {
@@ -25,6 +26,7 @@
   text-align: center;
   line-height: 2.5rem;
 }
+
 #start-time {
   text-align: center;
   width: 5rem;
@@ -35,27 +37,31 @@
 table {
   width: 100%;
 }
+
 .table td {
-  vertical-align: middle
+  vertical-align: middle;
 }
+
 .table th {
   text-align: center;
 }
+
 .table td:not(:nth-of-type(2)),
 .table td:not(:nth-of-type(2)) input {
   text-align: center;
 }
+
 .table td:nth-of-type(2) {
   padding: 0.05rem 0 !important;
 }
 
-table th:nth-of-type(1) { width: 2% }
-table th:nth-of-type(2) { width: 38% }
-table th:nth-of-type(3) { width: 12% }
-table th:nth-of-type(4) { width: 12% }
-table th:nth-of-type(5) { width: 12% }
-table th:nth-of-type(6) { width: 12% }
-table th:nth-of-type(7) { width: 12% }
+table th:nth-of-type(1) { width: 2%; }
+table th:nth-of-type(2) { width: 38%; }
+table th:nth-of-type(3) { width: 12%; }
+table th:nth-of-type(4) { width: 12%; }
+table th:nth-of-type(5) { width: 12%; }
+table th:nth-of-type(6) { width: 12%; }
+table th:nth-of-type(7) { width: 12%; }
 
 .remove {
   cursor: pointer;
@@ -64,39 +70,44 @@ table th:nth-of-type(7) { width: 12% }
 
 
 /* Checkbox */
-input[type=checkbox]{
-	height: 0;
-	width: 0;
-	visibility: hidden;
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
 }
+
 label {
-	cursor: pointer;
-	text-indent: -9999px;
-	width: 80px;
-	height: 40px;
-	background: grey;
-	display: block;
-	border-radius: 100px;
-	position: relative;
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 80px;
+  height: 40px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
 }
-label:after {
-	content: '';
-	position: absolute;
-	top: 5px;
-	left: 5px;
-	width: 30px;
-	height: 30px;
-	background: #fff;
-	border-radius: 90px;
-	transition: 0.3s;
+
+label::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
 }
+
 input:checked + label {
-	background: #3273dc;
+  background: #3273dc;
 }
-input:checked + label:after {
-	left: calc(100% - 5px);
-	transform: translateX(-100%);
+
+input:checked + label::after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
 }
-label:active:after {
-	width: 70px;
+
+label:active::after {
+  width: 70px;
 }
