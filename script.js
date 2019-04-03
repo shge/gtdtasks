@@ -13,6 +13,8 @@ $('#sound').on('click', function() {
 
 setInterval(function(){
   video.play();
+  beep.play();
+  beep.pause();
 }, 20000);  // every 20 sec
 
 setInterval(function(){
