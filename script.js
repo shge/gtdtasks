@@ -1,16 +1,31 @@
 $(function() {
 
 var beep = new Audio('beep_short.mp3');
+var video = document.getElementById('prevent-sleep-video');
 
 $('#sound').on('click', function() {
   beep.play();
-  beep.pause();
-  document.getElementById('prevent-sleep-video').play();
+  setTimeout(function() {
+    beep.pause();
+  }, 1000);
+  video.play();
 });
 
 setInterval(function(){
-  document.getElementById('prevent-sleep-video').play();
+  video.play();
 }, 20000);  // every 20 sec
+
+setInterval(function(){
+  var promise = video.play();
+  if (promise !== undefined) {
+    promise.then(_ => {
+      $('#sleep-msg').text('スリープ防止が有効です。');
+    }).catch(error => {
+      $('#sleep-msg').text('スリープ防止が無効です。');
+    });
+  }
+}, 2000);
+
 
 var now = moment().format('HH:mm');
 // $('#eta-today, #current-time, tr:first-child .start').text(now);
