@@ -13,8 +13,6 @@ $('#sound').on('click', function() {
 
 setInterval(function(){
   video.play();
-  beep.play();
-  beep.pause();
 }, 20000);  // every 20 sec
 
 setInterval(function(){
@@ -133,13 +131,16 @@ var last_played;
 setInterval(function(){
 
   var now = moment();
-  $('#current-time').text(now.format('HH:mm'));
+  var now_HHmm = now.format('HH:mm');
+  $('#current-time').text(now_HHmm);
 
   // Sound
-  if ($('#sound').prop('checked') && now.format('HH:mm') === $('tr:first-child .end').text() && last_played !== now.format('HH:mm')) {
+  if ($('#sound').prop('checked')
+      && $('tr .end').text().indexOf(now_HHmm) !== -1
+      && last_played !== now_HHmm) {
     beep.play();
-    console.log('Played: ' + now.format('HH:mm:ss')); // dev
-    last_played = now.format('HH:mm');
+    console.log('Alarm played: ' + now.format('HH:mm:ss')); // dev
+    last_played = now_HHmm;
   }
 
   for (var i = 1; i < $('tr').length; i++) {
